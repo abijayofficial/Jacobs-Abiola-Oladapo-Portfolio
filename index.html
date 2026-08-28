@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jacobs Abiola Oladapo — Software Developer</title>
+  <meta name="description" content="Jacobs Abiola Oladapo | Software Developer Portfolio" />
+
+  <style>
+    :root {
+      --bg: #0b0d15;
+      --surface: #151823;
+      --surface-hover: #1c2030;
+      --border: #2a2e3f;
+      --text: #e8eaf2;
+      --muted: #9ca3b4;
+      --accent: #5b8fff;
+      --accent-soft: rgba(91, 143, 255, 0.12);
+      --radius: 14px;
+      --maxw: 1100px;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* ========== Header ========== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .identity strong {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .identity span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .menu-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ========== Hero ========== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 48px;
+      padding: 72px 0 64px;
+    }
+
+    .hero-content {
+      flex: 1 1 480px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      line-height: 1.18;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: #4a7ae0;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      padding: 13px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: all var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .hero-image {
+      flex: 1 1 280px;
+      max-width: 340px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 10px var(--accent-soft);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.03);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ========== Sections ========== */
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ========== Projects ========== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: rgba(91, 143, 255, 0.35);
+      background: var(--surface-hover);
+    }
+
+    .project h3 {
+      font-size: 1.1rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex-grow: 1;
+    }
+
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech span {
+      font-size: 0.75rem;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #252a3a;
+      color: #b8c0d0;
+      font-weight: 500;
+    }
+
+    .project .btn-primary {
+      align-self: flex-start;
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      margin-top: 4px;
+    }
+
+    .see-more-container {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ========== About ========== */
+    .about {
+      max-width: 720px;
+    }
+
+    .about > p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: 1rem;
+    }
+
+    .skills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skills span {
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+
+    .skills span:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* ========== Contact ========== */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-box strong {
+      color: var(--text);
+    }
+
+    .contact-box a[href^="tel"] {
+      color: var(--text);
+    }
+
+    .contact-box a[href^="tel"]:hover {
+      color: var(--accent);
+    }
+
+    .contact-box .btn-primary {
+      margin-top: 10px;
+      align-self: flex-start;
+    }
+
+    /* ========== Footer ========== */
+    footer {
+      padding: 40px 0 48px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ========== Soft entrance animation ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== Responsive ========== */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0 0 var(--radius) var(--radius);
+        flex-direction: column;
+        padding: 12px 20px;
+        gap: 0;
+        z-index: 50;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav a:last-child {
+        border-bottom: none;
+      }
+
+      nav a::after {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 32px;
+        padding: 48px 0 40px;
+      }
+
+      .hero-content {
+        flex: none;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-image {
+        width: 200px;
+        height: 200px;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      .container {
+        padding: 24px 18px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        padding: 16px 14px;
+      }
+
+      .hero {
+        padding: 32px 0 28px;
+        gap: 24px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+
+      .hero-image {
+        width: 160px;
+        height: 160px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+
+      section {
+        padding: 36px 0;
+      }
+
+      .section-header h2 {
+        font-size: 1.4rem;
+      }
+
+      .project {
+        padding: 20px;
+      }
+
+      .contact-box {
+        padding: 22px;
+      }
+
+      .contact-box .btn-primary {
+        width: 100%;
+        align-self: stretch;
+      }
+
+      footer {
+        padding: 28px 0 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <div class="identity">
+        <strong>Jacobs Abiola Oladapo</strong>
+        <span>Software Developer</span>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <nav id="mainNav">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content reveal">
+        <h1>Designing and building modern web products.</h1>
+        <p>
+          I am a Software Developer with 3 years of experience building scalable web applications, clean user interfaces, and reliable backend integrations. I work across frontend and API-driven products with a focus on performance, maintainable architecture, and practical business outcomes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#projects">View Projects</a>
+          <a class="btn-secondary" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-image reveal">
+        <img src="images.png" alt="Jacobs Abiola Oladapo — Profile photo">
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header reveal">
+        <h2>Projects</h2>
+        <p>Selected real-world work</p>
+      </div>
+
+      <div class="projects">
+        <div class="project reveal">
+          <h3>De-Brilliant Academy Learning Platform</h3>
+          <p>
+            Multi-module digital learning platform with quizzes, homework submission,
+            parent communication portal, and secure access control.
+          </p>
+          <div class="tech">
+            <span>JavaScript</span><span>REST APIs</span><span>Google Sheets API</span>
+          </div>
+          <a class="btn-primary" href="https://de-brilliant-acadademy.vercel.app/" target="_blank" rel="noopener">Live Project</a>
+        </div>
+
+        <div class="project reveal">
+          <h3>Solana Perpetual DEX Frontend</h3>
+          <p>
+            Production-ready decentralized exchange frontend with TradingView
+            integration and high-performance UI.
+          </p>
+          <div class="tech">
+            <span>React</span><span>Web3</span><span>TradingView</span>
+          </div>
+          <a class="btn-primary" href="https://kinetic-mocha.vercel.app/" target="_blank" rel="noopener">Live Project</a>
+        </div>
+
+        <div class="project reveal">
+          <h3>$YOUSHAN Memecoin Website</h3>
+          <p>
+            Fully responsive React website with tokenomics, community links,
+            and production deployment.
+          </p>
+          <div class="tech">
+            <span>React</span><span>CSS</span><span>Deployment</span>
+          </div>
+          <a class="btn-primary" href="https://www.youshan.world/" target="_blank" rel="noopener">Live Project</a>
+        </div>
+
+        <div class="project reveal">
+          <h3>Victoria Point Hotel &amp; Event Center Website</h3>
+          <p>
+            Hospitality website for an Epe hotel and event center, featuring rooms,
+            services, gallery sections, booking CTAs, and location/contact access.
+          </p>
+          <div class="tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>SEO</span>
+          </div>
+          <a class="btn-primary" href="https://victoriapointhotelepe.com/" target="_blank" rel="noopener">Live Project</a>
+        </div>
+      </div>
+
+      <div class="see-more-container reveal">
+        <a class="btn-secondary" href="projects.html">See More Projects</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header reveal">
+        <h2>About</h2>
+        <p>Professional experience & technical skill set</p>
+      </div>
+
+      <div class="about reveal">
+        <p>
+          I am a results-driven Software Developer with 3 years of hands-on
+          experience delivering responsive, production-ready web applications.
+          I specialize in turning product requirements into dependable software
+          using modern JavaScript tools, reusable UI systems, and well-structured
+          API integrations.
+        </p>
+
+        <div class="skills">
+          <span>JavaScript ES6+</span>
+          <span>TypeScript</span>
+          <span>React</span>
+          <span>Node.js</span>
+          <span>REST API Integration</span>
+          <span>Tailwind CSS</span>
+          <span>Responsive UI</span>
+          <span>Frontend Architecture</span>
+          <span>Performance Optimization</span>
+          <span>Deployment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header reveal">
+        <h2>Contact</h2>
+        <p>Let’s work together</p>
+      </div>
+
+      <div class="contact-box reveal">
+        <p>Email: <strong>abiolajacobs645@gmail.com</strong></p>
+        <p>
+          Phone:
+          <a href="tel:+2349034823682">0903 482 3682</a>
+        </p>
+        <a class="btn-primary" href="mailto:abiolajacobs645@gmail.com">Email me</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Jacobs Abiola Oladapo
+    </footer>
+
+  </div>
+
+  <script>
+    // Mobile menu
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => nav.classList.remove('open'));
+    });
+
+    // Soft reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
